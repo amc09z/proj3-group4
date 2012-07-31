@@ -23,6 +23,11 @@
         <activity android:name="GarageListActivity"></activity>
         <activity android:name="MessageWallActivity"></activity>
         <activity android:name="OptionsPageActivity"></activity>
+        <receiver android:name="ProximityAlertReceiver"></receiver>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 </manifest>
