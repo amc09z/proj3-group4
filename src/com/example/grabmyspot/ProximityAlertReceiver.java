@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.location.LocationManager;
 import android.util.Log;
+import android.widget.Toast;
 
 public class ProximityAlertReceiver extends BroadcastReceiver {
     private static final int NOTIFICATION_ID = 1000;
@@ -22,21 +23,25 @@ public class ProximityAlertReceiver extends BroadcastReceiver {
 	         
 	        if (entering) {
 	            Log.d(getClass().getSimpleName(), "entering");
+	            Toast.makeText(context, "Entering", Toast.LENGTH_SHORT).show();
+		        NotificationManager notificationManager =
+			            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+			        
+		        	Intent myIntent = new Intent(context, GarageListActivity.class);
+			        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, myIntent, 0);       
+			         
+			        Notification notification = createNotification();
+			        notification.setLatestEventInfo(context,
+			            "Proximity Alert!", "You are nearing a garage!", pendingIntent);
+			         
+			        notificationManager.notify(NOTIFICATION_ID, notification);
 	        }
 	        else {
 	            Log.d(getClass().getSimpleName(), "exiting");
+	            Toast.makeText(context, "Exiting", Toast.LENGTH_SHORT).show();
 	        }
 	         
-	        NotificationManager notificationManager =
-	            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-	         
-	        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, null, 0);       
-	         
-	        Notification notification = createNotification();
-	        notification.setLatestEventInfo(context,
-	            "Proximity Alert!", "You are near your point of interest.", pendingIntent);
-	         
-	        notificationManager.notify(NOTIFICATION_ID, notification);
+
 	         
 	    }
      

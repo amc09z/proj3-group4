@@ -3,6 +3,6 @@
     <string name="app_name">GrabMySpot</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">GrabMySpot</string>
 	<string name="APP_KEY">00#OoQ-1Ss-euagfD2021Y010Jum3WoBmmM-DOCLlK5HtbmWgGgCsW0O1CIA77Y509</string>
 </resources>

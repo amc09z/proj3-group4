@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 
@@ -20,7 +21,7 @@ public class MainActivity extends Activity {
     private static final long MINIMUM_DISTANCECHANGE_FOR_UPDATE = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATE = 1000; // in Milliseconds
 	     
-	private static final long POINT_RADIUS = 20; // in Meters
+	private static final long POINT_RADIUS = 75; // in Meters
 	private static final long PROX_ALERT_EXPIRATION = -1;
 	 
 	private static final String POINT_LATITUDE_KEY = "POINT_LATITUDE_KEY";
@@ -41,8 +42,13 @@ public class MainActivity extends Activity {
 	double Copeland_long = -84.290412;
 	double Stadium_lat = 30.443476;
 	double Stadium_long = -84.305232;
+	double Pensacola_lat = 30.438168;
+	double Pensacola_long = -84.299778;
+	int testifenabled = 0;
 	
+	ProximityAlertReceiver mProximityAlertReceiver = new ProximityAlertReceiver();
 	
+	TextView mTextView;
 	
 
     @Override
@@ -50,6 +56,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        mTextView = (TextView)findViewById(R.id.textView2);
+        mTextView.setText("Broadcast Receiver is On");
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         locationManager.requestLocationUpdates(
@@ -58,33 +66,23 @@ public class MainActivity extends Activity {
                         MINIMUM_DISTANCECHANGE_FOR_UPDATE,
                         new MyLocationListener());
         
-        addProximityAlert(Woodward_lat, Woodward_long);
-        addProximityAlert(CallSt_lat, CallSt_long);
-        addProximityAlert(Traditions_lat, Traditions_long);
-        addProximityAlert(Copeland_lat, Copeland_long);
-        addProximityAlert(Stadium_lat, Stadium_long);
+        addProximityAlert(Woodward_lat, Woodward_long, 1);
+        addProximityAlert(CallSt_lat, CallSt_long, 2);
+        addProximityAlert(Traditions_lat, Traditions_long, 3);
+        addProximityAlert(Copeland_lat, Copeland_long, 4);
+        addProximityAlert(Stadium_lat, Stadium_long, 5);
+        addProximityAlert(Pensacola_lat, Pensacola_long, 6);
         
 
 
     }
     
-    private void saveProximityAlertPoint() {
-        Location location = 
-            locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        if (location==null) {
-            Toast.makeText(this, "No last known location. Aborting...", 
-                Toast.LENGTH_LONG).show();
-            return;
-        }
-        saveCoordinatesInPreferences((float)location.getLatitude(),
-               (float)location.getLongitude());
-        addProximityAlert(location.getLatitude(), location.getLongitude());
-    }
+
     
-    private void addProximityAlert(double latitude, double longitude) {
+    private void addProximityAlert(double latitude, double longitude, int intentnum) {
         
         Intent intent = new Intent(PROX_ALERT_INTENT);
-        PendingIntent proximityIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        PendingIntent proximityIntent = PendingIntent.getBroadcast(this, intentnum, intent, 0);
         
         locationManager.addProximityAlert(
             latitude, // the latitude of the central point of the alert region
@@ -95,7 +93,7 @@ public class MainActivity extends Activity {
        );
         
        IntentFilter filter = new IntentFilter(PROX_ALERT_INTENT);  
-       registerReceiver(new ProximityAlertReceiver(), filter);
+       registerReceiver(mProximityAlertReceiver, filter);
        
     }
 
@@ -124,7 +122,7 @@ public class MainActivity extends Activity {
         public void onLocationChanged(Location location) {
             Location pointLocation = retrievelocationFromPreferences();
             float distance = location.distanceTo(pointLocation);
-            Toast.makeText(MainActivity.this, "Distance from Point:"+distance, Toast.LENGTH_LONG).show();
+           // Toast.makeText(MainActivity.this, "Distance from Point:"+distance, Toast.LENGTH_LONG).show();
         }
         public void onStatusChanged(String s, int i, Bundle b) {            
         }
@@ -150,9 +148,26 @@ public class MainActivity extends Activity {
     }
     
     public void myOptionsButtonHandler(View v){
-    	Toast.makeText(this, "Going to options menu", Toast.LENGTH_SHORT).show();
-    	Intent myIntent = new Intent(this, OptionsPageActivity.class);
-    	startActivity(myIntent);
+    	//Toast.makeText(this, "Going to options menu", Toast.LENGTH_SHORT).show();
+        mTextView = (TextView)findViewById(R.id.textView2);
+    	if(testifenabled == 0)
+    	{
+    		unregisterReceiver(mProximityAlertReceiver);
+    		//Toast.makeText(this, "Unregistering Receiver", Toast.LENGTH_SHORT).show();
+    		testifenabled++;
+    		mTextView.setText("Broadcast Receiver is Off");
+    	}
+    	else
+    	{
+    	    IntentFilter filter = new IntentFilter(PROX_ALERT_INTENT); 
+    		registerReceiver(mProximityAlertReceiver, filter);
+    		//Toast.makeText(this, "Registering Receiver", Toast.LENGTH_SHORT).show();
+    		testifenabled = testifenabled - 1;
+    		mTextView.setText("Broadcast Receiver is On");
+    		
+    	}
+    	//Intent myIntent = new Intent(this, OptionsPageActivity.class);
+    	//startActivity(myIntent);
     }
    
 

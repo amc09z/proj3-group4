@@ -8,12 +8,13 @@
         android:targetSdkVersion="15" />
 
     <application
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/fsu_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +24,7 @@
         <activity android:name="GarageListActivity"></activity>
         <activity android:name="MessageWallActivity"></activity>
         <activity android:name="OptionsPageActivity"></activity>
+        <activity android:name=".CheckInActivity"></activity>
         <receiver android:name="ProximityAlertReceiver"></receiver>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

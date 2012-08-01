@@ -2,6 +2,7 @@ package com.example.grabmyspot;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
 public class OptionsPageActivity extends Activity {
 
@@ -12,5 +13,7 @@ public class OptionsPageActivity extends Activity {
 	    setContentView(R.layout.options_menu);
 	    // TODO Auto-generated method stub
 	}
+	
+
 
 }
