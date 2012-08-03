@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#7D0900" >
 
     <TextView
         android:id="@+id/textView1"
@@ -11,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="138dp"
         android:text="Grab My Spot"
+        android:textColor="#ffffff"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -49,6 +51,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
         android:text="Medium Text"
+        android:textColor="#ffffff"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

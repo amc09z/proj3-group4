@@ -25,6 +25,7 @@
         <activity android:name="MessageWallActivity"></activity>
         <activity android:name="OptionsPageActivity"></activity>
         <activity android:name=".CheckInActivity"></activity>
+        <activity android:name="PostMessageActivity"></activity>
         <receiver android:name="ProximityAlertReceiver"></receiver>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

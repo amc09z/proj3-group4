@@ -56,6 +56,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        
         mTextView = (TextView)findViewById(R.id.textView2);
         mTextView.setText("Broadcast Receiver is On");
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -169,7 +170,17 @@ public class MainActivity extends Activity {
     	//Intent myIntent = new Intent(this, OptionsPageActivity.class);
     	//startActivity(myIntent);
     }
-   
+    
+    @Override
+    public void onBackPressed() {
 
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
+    }
+
+    
     
 }

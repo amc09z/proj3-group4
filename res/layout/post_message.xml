@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#7D0900" >
+
+    <TextView
+        android:id="@+id/messageintro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+   
+   		<RadioGroup
+        	android:id="@+id/radioGroup2"
+       	 	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radioenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entering"
+            android:checked="true" 
+             android:textColor="#FFFFFF"/>
+
+        <RadioButton
+            android:id="@+id/radioexit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exiting"
+             android:textColor="#FFFFFF" />
+
+   		</RadioGroup>
+
+   		
+   		
+   		 <RadioGroup
+        	android:id="@+id/radioGroup1"
+       	 	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical" >
+   		
+   		 
+   		
+   		<RadioButton
+   		    android:id="@+id/floor1"
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:checked="true"
+   		    android:text="1st Floor"
+   		    android:textColor="#FFFFFF" />
+
+   		<RadioButton
+   		    android:id="@+id/floor2"
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:text="2nd Floor"
+   		    android:textColor="#FFFFFF" />
+        
+        
+    	
+        <RadioButton
+            android:id="@+id/floor3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3rd Floor"
+             android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/floor4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4th Floor"
+             android:textColor="#FFFFFF" />
+
+   		        <RadioButton
+            android:id="@+id/floor5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5th Floor"
+             android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/floor6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6th Floor" 
+             android:textColor="#FFFFFF"/>
+
+    
+ 	</RadioGroup>
+    
+    <Button
+        android:id="@+id/postmessagebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="postMessageHandler"
+        android:text="Post Message" />
+
+  
+   
+        
+</LinearLayout>

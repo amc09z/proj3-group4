@@ -1,98 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#7D0900" >
 
-    <TableRow
-        android:id="@+id/tableRow1"
+    <TextView
+        android:id="@+id/garageInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textColor="#FFFFFF" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="278dp"
+        android:background="#FFFFFF"
+         >
+    </ListView>
+
+    <Button
+        android:id="@+id/checkIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkInHandler"
+        android:text="Check In"
+         />
+
+    <Button
+        android:id="@+id/checkOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkOutHandler"
+        android:text="Check Out"
+          />
+    
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+    </RelativeLayout>
 
-        <TextView
-            android:id="@+id/garageInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow2"
+    <Button
+        android:id="@+id/postmessage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:onClick="postMessageHandler"
+        android:text="Post Message"
+         />
 
-        <TextView
-            android:id="@+id/comment1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" 
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/comment2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/comment3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" 
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/comment4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/checkIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Check In" 
-            android:onClick="checkInHandler"/>
-
-        <Button
-            android:id="@+id/checkOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Check Out" 
-            android:onClick="checkOutHandler"/>
-
-    </TableRow>
-
-</TableLayout>
+</LinearLayout>

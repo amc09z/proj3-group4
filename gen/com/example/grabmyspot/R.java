@@ -24,20 +24,24 @@ public final class R {
         public static final int button1=0x7f080001;
         public static final int button2=0x7f080002;
         public static final int button3=0x7f080003;
-        public static final int checkIn=0x7f080010;
-        public static final int checkOut=0x7f080011;
-        public static final int comment1=0x7f080008;
-        public static final int comment2=0x7f08000a;
-        public static final int comment3=0x7f08000c;
-        public static final int comment4=0x7f08000e;
-        public static final int garageInfo=0x7f080006;
-        public static final int menu_settings=0x7f080012;
-        public static final int tableRow1=0x7f080005;
-        public static final int tableRow2=0x7f080007;
-        public static final int tableRow3=0x7f080009;
-        public static final int tableRow4=0x7f08000b;
-        public static final int tableRow5=0x7f08000d;
-        public static final int tableRow6=0x7f08000f;
+        public static final int checkIn=0x7f080007;
+        public static final int checkOut=0x7f080008;
+        public static final int floor1=0x7f08000f;
+        public static final int floor2=0x7f080010;
+        public static final int floor3=0x7f080011;
+        public static final int floor4=0x7f080012;
+        public static final int floor5=0x7f080013;
+        public static final int floor6=0x7f080014;
+        public static final int garageInfo=0x7f080005;
+        public static final int listView1=0x7f080006;
+        public static final int menu_settings=0x7f080016;
+        public static final int messageintro=0x7f08000a;
+        public static final int postmessage=0x7f080009;
+        public static final int postmessagebutton=0x7f080015;
+        public static final int radioGroup1=0x7f08000e;
+        public static final int radioGroup2=0x7f08000b;
+        public static final int radioenter=0x7f08000c;
+        public static final int radioexit=0x7f08000d;
         public static final int textView1=0x7f080000;
         public static final int textView2=0x7f080004;
     }
@@ -47,6 +51,7 @@ public final class R {
         public static final int garage_list=0x7f030002;
         public static final int message_wall=0x7f030003;
         public static final int options_menu=0x7f030004;
+        public static final int post_message=0x7f030005;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;
